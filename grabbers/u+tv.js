@@ -76,7 +76,7 @@ function *grab(config, argv) {
 
     var channels = {};
 
-    for (var channel of res.body.brdCntrTvChnlIDtoList) {
+    for (var channel of (res.body.brdCntrTvChnlIDtoList || [])) {
         // [
         //     {
         //       urcBrdCntrTvChnlId: '561',
@@ -117,7 +117,7 @@ function *grab(config, argv) {
                 json: true
             });
 
-            for (var r of res.body.brdCntTvSchIDtoList) {
+            for (var r of (res.body.brdCntTvSchIDtoList || [])) {
                 // [{
                 //     brdCntTvSchIDtoList: null,
                 //     brdGnreDtoList: null,
