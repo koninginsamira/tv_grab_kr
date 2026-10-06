@@ -60,7 +60,7 @@ function *grab(config, argv) {
         json: true
     });
 
-    var channelGroups = res.body.brdGnreDtoList
+    var channelGroups = (res.body.brdGnreDtoList || [])
                             .filter(cg => !!cg.urcBrdCntrTvChnlGnreCd); // filter out "전체채널"
     // [
     //   {
