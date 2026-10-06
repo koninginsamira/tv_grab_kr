@@ -43,7 +43,7 @@ function *grab(config, argv) {
         json: true
     });
 
-    var liveChannels = res.body.body.result;
+    var liveChannels = res.body.body.result || [];
     liveChannels.sort((a, b) => a.schedule.channel.category_name.ko.localeCompare(b.schedule.channel.category_name.ko));
 
     var channels = {};
@@ -105,7 +105,7 @@ function *grab(config, argv) {
                 json: true
             });
 
-            for (var sc of res.body.body.result) {
+            for (var sc of (res.body.body.result || [])) {
                 var data = sc.program || sc.movie;
                 if (!data) {
                     console.error(sc);
